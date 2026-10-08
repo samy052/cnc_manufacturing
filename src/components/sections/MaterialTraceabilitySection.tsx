@@ -619,7 +619,7 @@ export default function MaterialTraceabilitySection() {
 
         {/* Dropdown 1: Material Grade */}
         <div className="mt-dropdown-group">
-          <label className="mt-drop-label">Material Grade</label>
+          <span className="mt-drop-label">Grade:</span>
           <select
             className="mt-select"
             value={filterGrade}
@@ -636,7 +636,7 @@ export default function MaterialTraceabilitySection() {
 
         {/* Dropdown 2: Machine */}
         <div className="mt-dropdown-group">
-          <label className="mt-drop-label">Machine</label>
+          <span className="mt-drop-label">Machine:</span>
           <select
             className="mt-select"
             value={filterMachine}
@@ -656,7 +656,7 @@ export default function MaterialTraceabilitySection() {
 
         {/* Dropdown 3: Status */}
         <div className="mt-dropdown-group">
-          <label className="mt-drop-label">Status</label>
+          <span className="mt-drop-label">Status:</span>
           <select
             className="mt-select"
             value={filterStatus}

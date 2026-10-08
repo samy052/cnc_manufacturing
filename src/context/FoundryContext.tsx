@@ -628,15 +628,7 @@ const INITIAL_CYCLE_CONFIG: Record<string, { progress: number; state: Machine['c
 export function FoundryProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [language, setLanguageState] = useState<Language>('en');
-  const [activeSection, setActiveSection] = useState<SectionType>('overview');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isLive, setIsLive] = useState(true);
-  const [clockTime, setClockTime] = useState('--:--:--');
-  const [machineFilter, setMachineFilter] = useState<'all' | 'warning'>('all');
-  const [selectedMachineId, setSelectedMachineId] = useState<string | null>('CNC-05');
-
-  // Support direct query param navigation (?tab=production, etc.)
-  useEffect(() => {
+  const [activeSection, setActiveSection] = useState<SectionType>(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const tab = params.get('tab') as SectionType;
@@ -646,8 +638,35 @@ export function FoundryProvider({ children }: { children: React.ReactNode }) {
         'optimization', 'smart_kpi', 'assistant', 'machine_detail'
       ];
       if (tab && validTabs.includes(tab)) {
-        setActiveSection(tab);
+        return tab;
       }
+    }
+    return 'overview';
+  });
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLive, setIsLive] = useState(true);
+  const [clockTime, setClockTime] = useState('--:--:--');
+  const [machineFilter, setMachineFilter] = useState<'all' | 'warning'>('all');
+  const [selectedMachineId, setSelectedMachineId] = useState<string | null>('CNC-05');
+
+  // Support direct query param navigation & popstate (?tab=production, etc.)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleLocation = () => {
+        const params = new URLSearchParams(window.location.search);
+        const tab = params.get('tab') as SectionType;
+        const validTabs: SectionType[] = [
+          'overview', 'production', 'collection', 'edge_signals',
+          'vision', 'maintenance', 'downtime', 'traceability',
+          'optimization', 'smart_kpi', 'assistant', 'machine_detail'
+        ];
+        if (tab && validTabs.includes(tab)) {
+          setActiveSection(tab);
+        }
+      };
+      handleLocation();
+      window.addEventListener('popstate', handleLocation);
+      return () => window.removeEventListener('popstate', handleLocation);
     }
   }, []);
 
