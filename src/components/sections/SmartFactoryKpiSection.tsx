@@ -192,7 +192,7 @@ export default function SmartFactoryKpiSection() {
                 <path d="M8 22h8" />
               </svg>
             </div>
-            <h1 className="modern-hero-title">4G vs 5G Manufacturing Intelligence &amp; KPIs</h1>
+            <h1 className="modern-hero-title">Industry 4.0 &amp; 5.0 Manufacturing Intelligence &amp; KPIs</h1>
           </div>
           <p className="modern-hero-subtitle">
             Compare network performance, manufacturing efficiency, and next-generation Industry 5.0 outcomes.
@@ -200,13 +200,13 @@ export default function SmartFactoryKpiSection() {
 
           <div className="modern-hero-pills-row">
             <span className="modern-pill pill-blue">
-              <RadioIcon size={12} color="#2563EB" /> 4G/5G Cellular Field Connectivity
+              4G/5G = Connectivity Technology
             </span>
             <span className="modern-pill pill-amber">
-              <CpuIcon size={12} color="#D97706" /> Industry 4.0: Connected Automation
+              ⚙️ Industry 4.0 = Connected Automation
             </span>
             <span className="modern-pill pill-teal">
-              <ShieldIcon size={12} color="#0D9488" /> Industry 5.0: Sustainable & Resilient Manufacturing
+              🔄 Industry 5.0 = Human, Sustainable &amp; Resilient Manufacturing
             </span>
             <span className="modern-pill pill-green-live">
               <span className="pulsing-live-dot" />
@@ -345,7 +345,7 @@ export default function SmartFactoryKpiSection() {
               <div className="modern-oee-top-title">OEE</div>
 
               <div className="modern-oee-radial-wrap">
-                <svg width="140" height="140" viewBox="0 0 160 160" className="modern-donut-svg">
+                <svg width="150" height="150" viewBox="0 0 160 160" className="modern-donut-svg">
                   <circle cx="80" cy="80" r="62" stroke="#E2E8F0" strokeWidth="12" fill="none" />
                   {/* Availability Arc (Blue) */}
                   <circle
@@ -375,265 +375,131 @@ export default function SmartFactoryKpiSection() {
                   />
                 </svg>
                 <div className="modern-oee-center-text">
-                  <span className="oee-pct-val">87.4%</span>
-                  <span className="oee-pct-label">OEE</span>
+                  <span className="oee-big-num">87.4%</span>
+                  <span className="oee-center-lbl">OEE</span>
                 </div>
               </div>
 
               {/* Donut Legend */}
               <div className="modern-oee-legend-stack">
-                <div className="oee-legend-row">
-                  <span className="oee-leg-name">
-                    <span className="leg-dot-avail" />
-                    Availability
-                  </span>
-                  <span className="oee-leg-val">92.1%</span>
+                <div className="oee-leg-item">
+                  <span className="leg-dot dot-darkblue" />
+                  <div>
+                    <span className="leg-name">Availability</span>
+                    <span className="leg-val">92.1%</span>
+                  </div>
                 </div>
-                <div className="oee-legend-row">
-                  <span className="oee-leg-name">
-                    <span className="leg-dot-perf" />
-                    Performance
-                  </span>
-                  <span className="oee-leg-val">96.2%</span>
+                <div className="oee-leg-item">
+                  <span className="leg-dot dot-teal" />
+                  <div>
+                    <span className="leg-name">Performance</span>
+                    <span className="leg-val">96.2%</span>
+                  </div>
                 </div>
-                <div className="oee-legend-row">
-                  <span className="oee-leg-name">
-                    <span className="leg-dot-qual" />
-                    Quality
-                  </span>
-                  <span className="oee-leg-val">98.6%</span>
+                <div className="oee-leg-item">
+                  <span className="leg-dot dot-purple" />
+                  <div>
+                    <span className="leg-name">Quality</span>
+                    <span className="leg-val">98.6%</span>
+                  </div>
                 </div>
               </div>
 
               {/* Bottom Mini Production Sparkline */}
               <div className="modern-oee-spark-row">
                 {hourlyBars.map((h, i) => (
-                  <div
-                    key={i}
-                    className={`modern-spark-bar ${i === hourlyBars.length - 1 ? 'active' : ''}`}
-                    style={{ height: `${Math.max(6, h * 0.22)}px` }}
-                    title={`Shift Hour ${i + 8}:00`}
-                  />
+                  <div key={i} className="spark-col-bar" style={{ height: `${h * 0.32}px` }} title={`Shift Hour ${i + 8}:00`} />
                 ))}
               </div>
             </div>
 
-            {/* 3x3 High-Density SCADA Metric Grid (Right Side) */}
+            {/* 3x3 Metric Grid (Right Side) */}
             <div className="modern-ind4-kpis-grid">
-              {/* Metric 1: FPY / FTR Yield */}
+              {/* Row 1 */}
               <div className="modern-kpi-subcard">
                 <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-green">
-                      <CheckIcon size={13} color="#059669" />
-                    </span>
-                    <span className="subcard-title">FPY / FTR Yield</span>
-                  </div>
-                  <span className="subcard-status-badge optimal">OPTIMAL</span>
+                  <span className="subcard-icon-box bg-light-green">✓</span>
+                  <span className="subcard-title">FPY / FTR</span>
                 </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">98.4%</span>
-                  <span className="subcard-delta-badge positive">↑ +0.9%</span>
+                <div className="subcard-value font-mono">98.4%</div>
+                <div className="subcard-meta">Defective rate: 1.6%</div>
+              </div>
+
+              <div className="modern-kpi-subcard">
+                <div className="subcard-top">
+                  <span className="subcard-icon-box bg-light-blue">🎯</span>
+                  <span className="subcard-title">MTBF</span>
                 </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-green" style={{ width: '98.4%' }} />
+                <div className="subcard-value font-mono">184 hrs</div>
+                <div className="subcard-meta">Target: &gt;160 hrs</div>
+              </div>
+
+              <div className="modern-kpi-subcard">
+                <div className="subcard-top">
+                  <span className="subcard-icon-box bg-light-amber">⏱️</span>
+                  <span className="subcard-title">MTTR</span>
                 </div>
-                <div className="subcard-meta-row">
-                  <span>Defective: <strong>1.6%</strong></span>
-                  <span>Target: <strong>&gt;97.5%</strong></span>
+                <div className="subcard-value font-mono">22 min</div>
+                <div className="subcard-meta">Target: &lt;30 min</div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="modern-kpi-subcard">
+                <div className="subcard-top">
+                  <span className="subcard-icon-box bg-light-teal">⚡</span>
+                  <span className="subcard-title">Machine Utilization</span>
+                </div>
+                <div className="subcard-value font-mono">89.2%</div>
+                <div className="subcard-mini-bar-track">
+                  <div className="subcard-mini-bar-fill bar-green" style={{ width: '89.2%' }} />
                 </div>
               </div>
 
-              {/* Metric 2: Fleet MTBF */}
               <div className="modern-kpi-subcard">
                 <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-blue">
-                      <ShieldIcon size={13} color="#2563EB" />
-                    </span>
-                    <span className="subcard-title">Fleet MTBF</span>
-                  </div>
-                  <span className="subcard-status-badge optimal">HEALTHY</span>
+                  <span className="subcard-icon-box bg-light-blue">🔄</span>
+                  <span className="subcard-title">Cycle Time</span>
                 </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">184.2 <small>hrs</small></span>
-                  <span className="subcard-delta-badge positive">+15.1%</span>
+                <div className="subcard-value font-mono">48.2 sec</div>
+                <div className="subcard-mini-curve">〰️ nominal</div>
+              </div>
+
+              <div className="modern-kpi-subcard">
+                <div className="subcard-top">
+                  <span className="subcard-icon-box bg-light-red">🛑</span>
+                  <span className="subcard-title">Downtime (Today)</span>
                 </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-blue" style={{ width: '92%' }} />
+                <div className="subcard-value font-mono">42 min</div>
+                <div className="subcard-meta text-red">↑ 12%</div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="modern-kpi-subcard">
+                <div className="subcard-top">
+                  <span className="subcard-icon-box bg-light-blue">📦</span>
+                  <span className="subcard-title">Throughput</span>
                 </div>
-                <div className="subcard-meta-row">
-                  <span>Target: <strong>&gt;160 hrs</strong></span>
-                  <span>Reliability: <strong>99.1%</strong></span>
+                <div className="subcard-value font-mono">4,531 <small style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-muted)' }}>parts/day</small></div>
+              </div>
+
+              <div className="modern-kpi-subcard">
+                <div className="subcard-top">
+                  <span className="subcard-icon-box bg-light-teal">📊</span>
+                  <span className="subcard-title">Target vs Actual</span>
+                </div>
+                <div className="subcard-value font-mono">94.6%</div>
+                <div className="subcard-mini-bar-track">
+                  <div className="subcard-mini-bar-fill bar-blue" style={{ width: '94.6%' }} />
                 </div>
               </div>
 
-              {/* Metric 3: Mean MTTR */}
               <div className="modern-kpi-subcard">
                 <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-amber">
-                      <ClockIcon size={13} color="#D97706" />
-                    </span>
-                    <span className="subcard-title">Mean MTTR</span>
-                  </div>
-                  <span className="subcard-status-badge in-spec">IN-SPEC</span>
+                  <span className="subcard-icon-box bg-light-green">🍃</span>
+                  <span className="subcard-title">Specific Energy</span>
                 </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">22.4 <small>min</small></span>
-                  <span className="subcard-delta-badge positive">↓ 14% faster</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-amber" style={{ width: '74%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Target: <strong>&lt;30 min</strong></span>
-                  <span>P95 Recovery: <strong>26m</strong></span>
-                </div>
-              </div>
-
-              {/* Metric 4: Machine Utilization */}
-              <div className="modern-kpi-subcard">
-                <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-teal">
-                      <ZapIcon size={13} color="#0D9488" />
-                    </span>
-                    <span className="subcard-title">Machine Utilization</span>
-                  </div>
-                  <span className="subcard-status-badge optimal">ACTIVE</span>
-                </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">89.2%</span>
-                  <span className="subcard-delta-badge positive">10/12 Cutting</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-teal" style={{ width: '89.2%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Spindle On: <strong>7.1h</strong></span>
-                  <span>Idle: <strong>0.9h</strong></span>
-                </div>
-              </div>
-
-              {/* Metric 5: Nominal Cycle Time */}
-              <div className="modern-kpi-subcard">
-                <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-blue">
-                      <RefreshIcon size={13} color="#2563EB" />
-                    </span>
-                    <span className="subcard-title">Nominal Cycle Time</span>
-                  </div>
-                  <span className="subcard-status-badge warning">DRIFT +3.2s</span>
-                </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">48.2 <small>sec</small></span>
-                  <span className="subcard-delta-badge negative">+6.7% vs Std</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-blue" style={{ width: '84%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Baseline: <strong>45.0s</strong></span>
-                  <span>Tolerance: <strong>±2.0s</strong></span>
-                </div>
-              </div>
-
-              {/* Metric 6: Unplanned Downtime */}
-              <div className="modern-kpi-subcard">
-                <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-red">
-                      <AlertIcon size={13} color="#DC2626" />
-                    </span>
-                    <span className="subcard-title">Unplanned Downtime</span>
-                  </div>
-                  <span className="subcard-status-badge alert">ATTENTION</span>
-                </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular text-red">42 <small>min</small></span>
-                  <span className="subcard-delta-badge negative">↑ 12% shift</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-red" style={{ width: '70%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Allowance: <strong>60 min</strong></span>
-                  <span>Top: <strong>Tool T05 (28m)</strong></span>
-                </div>
-              </div>
-
-              {/* Metric 7: Daily Throughput */}
-              <div className="modern-kpi-subcard">
-                <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-blue">
-                      <ActivityIcon size={13} color="#2563EB" />
-                    </span>
-                    <span className="subcard-title">Daily Throughput</span>
-                  </div>
-                  <span className="subcard-status-badge optimal">ON PACE</span>
-                </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">4,531 <small>pcs/day</small></span>
-                  <span className="subcard-delta-badge positive">566 pcs/hr</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-blue" style={{ width: '96%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Target: <strong>4,500 pcs</strong></span>
-                  <span>Pace: <strong>+31 ahead</strong></span>
-                </div>
-              </div>
-
-              {/* Metric 8: Target vs Actual */}
-              <div className="modern-kpi-subcard">
-                <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-teal">
-                      <CpuIcon size={13} color="#0D9488" />
-                    </span>
-                    <span className="subcard-title">Schedule Adherence</span>
-                  </div>
-                  <span className="subcard-status-badge in-spec">94.6%</span>
-                </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">94.6%</span>
-                  <span className="subcard-delta-badge positive">Shift A 84%</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-teal" style={{ width: '94.6%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Batch: <strong>#B-2026-095</strong></span>
-                  <span>Eta: <strong>13:48 IST</strong></span>
-                </div>
-              </div>
-
-              {/* Metric 9: Specific Energy */}
-              <div className="modern-kpi-subcard">
-                <div className="subcard-top">
-                  <div className="subcard-top-left">
-                    <span className="subcard-icon-box bg-light-green">
-                      <ZapIcon size={13} color="#059669" />
-                    </span>
-                    <span className="subcard-title">Specific Energy</span>
-                  </div>
-                  <span className="subcard-status-badge optimal">SAVINGS</span>
-                </div>
-                <div className="subcard-value-row">
-                  <span className="subcard-value font-mono tabular">1.95 <small>kWh/part</small></span>
-                  <span className="subcard-delta-badge positive">↓ 18.8% saved</span>
-                </div>
-                <div className="subcard-progress-track">
-                  <div className="subcard-progress-bar bar-green" style={{ width: '78%' }} />
-                </div>
-                <div className="subcard-meta-row">
-                  <span>Baseline: <strong>2.40 kWh</strong></span>
-                  <span>Grid PF: <strong>0.94</strong></span>
-                </div>
+                <div className="subcard-value font-mono">1.95 <small style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-muted)' }}>kWh / part</small></div>
+                <div className="subcard-meta">Baseline: 4G LTE</div>
               </div>
             </div>
           </div>
@@ -651,7 +517,7 @@ export default function SmartFactoryKpiSection() {
               </div>
               <div>
                 <h2 className="modern-hdr-title">Industry 5.0 — Human, Sustainable &amp; Resilient Manufacturing</h2>
-                <p className="modern-hdr-sub">Human-centricity, circular sustainability and fault-tolerant OT telemetry.</p>
+                <p className="modern-hdr-sub">Human-centricity, sustainability and resilience metrics enabled by next-gen connectivity.</p>
               </div>
             </div>
             <button
@@ -663,127 +529,178 @@ export default function SmartFactoryKpiSection() {
             </button>
           </div>
 
-          {/* 3 Categories Columns Side-by-Side as Rich Telemetry Cards */}
+          {/* 3 Categories Columns Side-by-Side */}
           <div className="modern-ind5-three-cols">
-            {/* Column 1: Human-Centric Ergonomics & Safety */}
-            <div className="ind5-cat-col-card">
+            {/* Column 1: Human-Centric */}
+            <div className="ind5-cat-col">
               <div className="ind5-col-header text-amber-orange">
-                <span className="col-header-icon">
-                  <ActivityIcon size={14} color="#D97706" />
-                </span>
-                <span className="col-header-title">Human-Centric Ergonomics</span>
+                <span className="col-header-icon">👥</span>
+                <span className="col-header-title">Human-Centric</span>
               </div>
 
-              <div className="ind5-metric-box">
-                <div className="ind5-box-top">
-                  <span className="ind5-box-lbl">Operator Safety Index</span>
-                  <span className="ind5-status-pill green">100% GREEN</span>
+              <div className="ind5-subcards-list">
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Operator Safety Index</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">99.8%</span>
+                    <span className="ind5-pill-badge badge-soft-green">Optimal</span>
+                  </div>
                 </div>
-                <div className="ind5-box-val font-mono">99.8%</div>
-                <div className="ind5-progress-bar">
-                  <div className="ind5-bar-fill bar-green" style={{ width: '99.8%' }} />
-                </div>
-                <div className="ind5-box-sub">142 Days Lost-Time-Incident (LTI) Free</div>
-              </div>
 
-              <div className="ind5-mini-rows-list">
-                <div className="ind5-mini-row">
-                  <span className="row-k">Ergonomic Fatigue (RULA)</span>
-                  <span className="row-v-tag green">Low (Level 2)</span>
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Ergonomic Risk</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">Low</span>
+                    <span className="ind5-pill-badge badge-soft-green">ISO 11228</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Cognitive Workload</span>
-                  <span className="row-v font-mono">72% (Optimal)</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Operator Workload</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono">72%</span>
+                    <span className="ind5-pill-badge badge-soft-blue">Nominal</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Cobot Speed &amp; Separation</span>
-                  <span className="row-v-tag blue">ISO 15066 OK</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Human-Machine Collaboration</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-teal">96%</span>
+                    <span className="ind5-pill-badge badge-soft-teal">Cobot Paired</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Operator Upskilling</span>
-                  <span className="row-v font-mono">94% Certified</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Safety Incidents</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">0</span>
+                    <span className="ind5-pill-badge badge-soft-green">0 incidents</span>
+                  </div>
+                </div>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Training / Skill Readiness</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono">94%</span>
+                    <span className="ind5-pill-badge badge-soft-blue">Certified</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Column 2: Sustainability & Circular Energy */}
-            <div className="ind5-cat-col-card">
+            {/* Column 2: Sustainability */}
+            <div className="ind5-cat-col">
               <div className="ind5-col-header text-green">
-                <span className="col-header-icon">
-                  <ZapIcon size={14} color="#059669" />
-                </span>
-                <span className="col-header-title">Sustainability &amp; Green Energy</span>
+                <span className="col-header-icon">🍃</span>
+                <span className="col-header-title">Sustainability</span>
               </div>
 
-              <div className="ind5-metric-box">
-                <div className="ind5-box-top">
-                  <span className="ind5-box-lbl">Specific Energy Consumption</span>
-                  <span className="ind5-status-pill green">↓ 29.2% (vs 4G)</span>
+              <div className="ind5-subcards-list">
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Specific Energy (SEC)</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">1.38 kWh/part</span>
+                    <span className="ind5-pill-badge badge-soft-green">↓ 29.2%</span>
+                  </div>
                 </div>
-                <div className="ind5-box-val font-mono text-green">1.38 <small style={{ fontSize: '13px', color: 'var(--text-muted)' }}>kWh/part</small></div>
-                <div className="ind5-progress-bar">
-                  <div className="ind5-bar-fill bar-teal" style={{ width: '71%' }} />
-                </div>
-                <div className="ind5-box-sub">Peak Load Shaving: -14.2 kW Avoided</div>
-              </div>
 
-              <div className="ind5-mini-rows-list">
-                <div className="ind5-mini-row">
-                  <span className="row-k">Carbon Footprint / Part</span>
-                  <span className="row-v font-mono text-green">0.42 kg CO₂e</span>
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Carbon Footprint</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">0.42 kg CO₂e</span>
+                    <span className="ind5-pill-badge badge-soft-green">↓ 20.4%</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Coolant Fluid Loop</span>
-                  <span className="row-v-tag green">94.6% Reclaimed</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Material Waste</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">1.2%</span>
+                    <span className="ind5-pill-badge badge-soft-green">Lean Target</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Swarf &amp; Scrap Circularity</span>
-                  <span className="row-v font-mono">1.6% (Zero Landfill)</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Scrap Rate</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono">1.6%</span>
+                    <span className="ind5-pill-badge badge-soft-blue">&lt; 2.0% Goal</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Water Recovery Ratio</span>
-                  <span className="row-v font-mono">0.18 L/part</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Water Consumption</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-teal">0.18 L/part</span>
+                    <span className="ind5-pill-badge badge-soft-teal">Recycled</span>
+                  </div>
+                </div>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Coolant &amp; Swarf Circularity</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">94.6%</span>
+                    <span className="ind5-pill-badge badge-soft-green">Circular OT</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Column 3: Operational Resilience */}
-            <div className="ind5-cat-col-card">
+            {/* Column 3: Resilience */}
+            <div className="ind5-cat-col">
               <div className="ind5-col-header text-blue">
-                <span className="col-header-icon">
-                  <ShieldIcon size={14} color="#2563EB" />
-                </span>
-                <span className="col-header-title">Operational Resilience</span>
+                <span className="col-header-icon">🛡️</span>
+                <span className="col-header-title">Resilience</span>
               </div>
 
-              <div className="ind5-metric-box">
-                <div className="ind5-box-top">
-                  <span className="ind5-box-lbl">Deterministic OT Latency</span>
-                  <span className="ind5-status-pill blue">URLLC 5G</span>
+              <div className="ind5-subcards-list">
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Recovery Time</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">14 min</span>
+                    <span className="ind5-pill-badge badge-soft-green">MTTR Bound</span>
+                  </div>
                 </div>
-                <div className="ind5-box-val font-mono text-blue">3.1 <small style={{ fontSize: '13px', color: 'var(--text-muted)' }}>ms</small></div>
-                <div className="ind5-progress-bar">
-                  <div className="ind5-bar-fill bar-blue" style={{ width: '94%' }} />
-                </div>
-                <div className="ind5-box-sub">Jitter: 0.7 ms · Packet Loss: 0.08%</div>
-              </div>
 
-              <div className="ind5-mini-rows-list">
-                <div className="ind5-mini-row">
-                  <span className="row-k">Line Failover Recovery</span>
-                  <span className="row-v font-mono">14 min MTTR</span>
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Production Flexibility</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-blue">91%</span>
+                    <span className="ind5-pill-badge badge-soft-blue">High Agility</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">OT Network Redundancy</span>
-                  <span className="row-v-tag green">99.999% Five-Nines</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Supply Chain Risk</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">Low</span>
+                    <span className="ind5-pill-badge badge-soft-green">Buffer OK</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">WIP Supply Buffer</span>
-                  <span className="row-v font-mono">4.2 Days Stock</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Machine Dependency</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono">Balanced</span>
+                    <span className="ind5-pill-badge badge-soft-blue">Multi-cell</span>
+                  </div>
                 </div>
-                <div className="ind5-mini-row">
-                  <span className="row-k">Cyber-Physical Security</span>
-                  <span className="row-v-tag blue">IEC 62443 L3</span>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Changeover Time</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-green">14 min</span>
+                    <span className="ind5-pill-badge badge-soft-green">↓ 81% faster</span>
+                  </div>
+                </div>
+
+                <div className="ind5-subcard">
+                  <span className="ind5-subcard-title">Recovery Readiness</span>
+                  <div className="ind5-subcard-val-row">
+                    <span className="ind5-subcard-val font-mono text-teal">96%</span>
+                    <span className="ind5-pill-badge badge-soft-teal">Hot Standby</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -824,9 +741,7 @@ export default function SmartFactoryKpiSection() {
             {/* Item 1 */}
             <div className="modern-imp-box">
               <div className="imp-box-top">
-                <span className="imp-icon text-teal">
-                  <ActivityIcon size={14} color="#0D9488" />
-                </span>
+                <span className="imp-icon text-teal">〰️</span>
                 <span className="imp-title">Machine Telemetry</span>
               </div>
               <div className="imp-from">Polling (4G)</div>
@@ -837,9 +752,7 @@ export default function SmartFactoryKpiSection() {
             {/* Item 2 */}
             <div className="modern-imp-box">
               <div className="imp-box-top">
-                <span className="imp-icon text-blue">
-                  <ShieldIcon size={14} color="#2563EB" />
-                </span>
+                <span className="imp-icon text-blue">📷</span>
                 <span className="imp-title">Quality Inspection</span>
               </div>
               <div className="imp-from">Post-process</div>
@@ -850,9 +763,7 @@ export default function SmartFactoryKpiSection() {
             {/* Item 3 */}
             <div className="modern-imp-box">
               <div className="imp-box-top">
-                <span className="imp-icon text-blue">
-                  <CpuIcon size={14} color="#2563EB" />
-                </span>
+                <span className="imp-icon text-blue">🦾</span>
                 <span className="imp-title">Robot / Cobot</span>
               </div>
               <div className="imp-from">Limited coordination</div>
@@ -863,9 +774,7 @@ export default function SmartFactoryKpiSection() {
             {/* Item 4 */}
             <div className="modern-imp-box">
               <div className="imp-box-top">
-                <span className="imp-icon text-purple">
-                  <ZapIcon size={14} color="#7C3AED" />
-                </span>
+                <span className="imp-icon text-purple">🧠</span>
                 <span className="imp-title">AI Inference</span>
               </div>
               <div className="imp-from">Cloud dependent</div>
@@ -876,9 +785,7 @@ export default function SmartFactoryKpiSection() {
             {/* Item 5 */}
             <div className="modern-imp-box">
               <div className="imp-box-top">
-                <span className="imp-icon text-amber">
-                  <ClockIcon size={14} color="#D97706" />
-                </span>
+                <span className="imp-icon text-amber">⚡</span>
                 <span className="imp-title">Data Latency Impact</span>
               </div>
               <div className="imp-from-to-txt"><strong>28.4 ms</strong> → <strong>3.1 ms</strong></div>
@@ -888,9 +795,7 @@ export default function SmartFactoryKpiSection() {
             {/* Item 6 */}
             <div className="modern-imp-box">
               <div className="imp-box-top">
-                <span className="imp-icon text-green">
-                  <RefreshIcon size={14} color="#059669" />
-                </span>
+                <span className="imp-icon text-green">⏱️</span>
                 <span className="imp-title">Production Response</span>
               </div>
               <div className="imp-from-to-txt"><strong>Minutes</strong> → <strong>Seconds</strong></div>
@@ -921,9 +826,7 @@ export default function SmartFactoryKpiSection() {
 
           <div className="modern-ai-insights-list">
             <div className="ai-insight-item">
-              <span className="ai-bullet-icon text-green">
-                <ZapIcon size={14} color="#059669" />
-              </span>
+              <span className="ai-bullet-icon text-green">💡</span>
               <p className="ai-bullet-text">
                 Network latency has improved by 89%, but <strong>OEE improvement is only 2.3%</strong>.
                 The primary production constraint is machine downtime rather than network latency.
@@ -931,9 +834,7 @@ export default function SmartFactoryKpiSection() {
             </div>
 
             <div className="ai-insight-item">
-              <span className="ai-bullet-icon text-blue">
-                <CpuIcon size={14} color="#2563EB" />
-              </span>
+              <span className="ai-bullet-icon text-blue">⚙️</span>
               <p className="ai-bullet-text">
                 Energy consumption per part has reduced by 29.2% with edge AI sleep modes.
                 Maintain current configuration across all CNC machines.
@@ -941,9 +842,7 @@ export default function SmartFactoryKpiSection() {
             </div>
 
             <div className="ai-insight-item">
-              <span className="ai-bullet-icon text-amber">
-                <AlertIcon size={14} color="#D97706" />
-              </span>
+              <span className="ai-bullet-icon text-amber">⚠️</span>
               <p className="ai-bullet-text">
                 CNC-07 shows increased cycle time and spindle load.
                 Recommendation: Inspect tool T-08 before next shift.
