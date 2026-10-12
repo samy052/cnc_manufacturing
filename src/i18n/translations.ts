@@ -96,6 +96,7 @@ export interface Translations {
     zoneA: string;
     zoneB: string;
     zoneC: string;
+    recentCaptures: string;
   };
   maintenance: {
     title: string;
@@ -138,6 +139,56 @@ export interface Translations {
     chips: string[];
     initialGreeting: string;
     clearedMessage: string;
+  };
+  categories: {
+    operations: string;
+    quality: string;
+    maintenance: string;
+    analytics: string;
+    intelligence: string;
+  };
+  common: {
+    searchPlaceholder: string;
+    live: string;
+    paused: string;
+    running: string;
+    idle: string;
+    warning: string;
+    inspect: string;
+    viewAll: string;
+    target: string;
+    actual: string;
+    ahead: string;
+    behind: string;
+    exportLog: string;
+    quickPrompts: string;
+    askAnythingTitle: string;
+    askAnythingSub: string;
+    timeRemaining: string;
+    estCompletion: string;
+    availability: string;
+    performance: string;
+    quality: string;
+    hours: string;
+    days: string;
+    cadenceTitle: string;
+    activeAlarmsTitle: string;
+    shiftTargetTitle: string;
+    oeeCompositionTitle: string;
+    edgeConnectivityTitle: string;
+    colMachine: string;
+    colModelLine: string;
+    colWorkpiece: string;
+    colStatus: string;
+    colSpeed: string;
+    colTemp: string;
+    colSmoothness: string;
+    colOee: string;
+    colAction: string;
+    colAnomaly: string;
+    colSeverity: string;
+    colReported: string;
+    testDefect: string;
   };
 }
 
@@ -238,6 +289,7 @@ export const translations: Record<Language, Translations> = {
       zoneA: 'CNC Machine Bay',
       zoneB: 'Loading & Dispatch Area',
       zoneC: 'Robot Arm Work Area',
+      recentCaptures: 'Recent Optical Inspections',
     },
     maintenance: {
       title: 'Upcoming Service & Repairs',
@@ -286,6 +338,56 @@ export const translations: Record<Language, Translations> = {
       ],
       initialGreeting: 'Hello! I am your Factory AI Assistant. I monitor all your machines, cameras, and production live. Tap any question on the right or ask me anything in plain words.',
       clearedMessage: 'Chat cleared. I am ready to answer any factory question.',
+    },
+    categories: {
+      operations: 'OPERATIONS',
+      quality: 'QUALITY',
+      maintenance: 'MAINTENANCE',
+      analytics: 'ANALYTICS',
+      intelligence: 'INTELLIGENCE',
+    },
+    common: {
+      searchPlaceholder: 'Search machines, parameters, alarms...',
+      live: 'Live Telemetry',
+      paused: 'Stream Paused',
+      running: 'Running',
+      idle: 'Idle',
+      warning: 'Attention',
+      inspect: 'Inspect',
+      viewAll: 'View All',
+      target: 'Target',
+      actual: 'Actual',
+      ahead: 'ahead',
+      behind: 'behind',
+      exportLog: 'Telemetry Log ↓',
+      quickPrompts: 'Quick Prompts:',
+      askAnythingTitle: 'Ask Anything',
+      askAnythingSub: 'Powered by RAG AI',
+      timeRemaining: 'Remaining',
+      estCompletion: 'Est. Completion',
+      availability: 'Availability',
+      performance: 'Performance',
+      quality: 'Quality',
+      hours: 'hrs',
+      days: 'days',
+      cadenceTitle: 'Shift Production Cadence (Units vs Target)',
+      activeAlarmsTitle: 'Active Alarms & Telemetry Anomalies (3)',
+      shiftTargetTitle: 'Shift Target Progress',
+      oeeCompositionTitle: 'OEE Composition',
+      edgeConnectivityTitle: 'Edge Connectivity & DAQ',
+      colMachine: 'Machine',
+      colModelLine: 'Model & Line',
+      colWorkpiece: 'Workpiece & Batch',
+      colStatus: 'Status',
+      colSpeed: 'Speed (RPM)',
+      colTemp: 'Temp (°C)',
+      colSmoothness: 'Smoothness',
+      colOee: 'OEE',
+      colAction: 'Action',
+      colAnomaly: 'Anomaly & Threshold',
+      colSeverity: 'Severity',
+      colReported: 'Reported',
+      testDefect: '⚡ Test Defect',
     },
   },
 
@@ -385,6 +487,7 @@ export const translations: Record<Language, Translations> = {
       zoneA: 'CNC मशीन एरिया',
       zoneB: 'लोडिंग और डिस्पैच एरिया',
       zoneC: 'रोबोट काम करने की जगह',
+      recentCaptures: 'हाल के ऑप्टिकल निरीक्षण',
     },
     maintenance: {
       title: 'आगामी सर्विस और रिपेयर',
@@ -433,6 +536,56 @@ export const translations: Record<Language, Translations> = {
       ],
       initialGreeting: 'नमस्ते! मैं आपका फ़ैक्टरी AI असिस्टेंट हूँ। मैं आपकी सभी मशीनों, कैमरों और काम पर नज़र रखता हूँ। दाईं तरफ़ के किसी भी सवाल पर टैप करें या कुछ भी आसान शब्दों में पूछें।',
       clearedMessage: 'चैट साफ़ हो गई है। आप कोई भी सवाल पूछ सकते हैं।',
+    },
+    categories: {
+      operations: 'ऑपरेशन्स (संचालन)',
+      quality: 'क्वालिटी (गुणवत्ता)',
+      maintenance: 'मेंटेनेंस (रखरखाव)',
+      analytics: 'एनालिटिक्स (विश्लेषण)',
+      intelligence: 'इंटेलिजेंस (AI सहायक)',
+    },
+    common: {
+      searchPlaceholder: 'मशीन, पार्ट, लाइन खोजें...',
+      live: 'लाइव टेलीमेट्री',
+      paused: 'स्ट्रीम रुकी है',
+      running: 'चालू है',
+      idle: 'खाली (Idle)',
+      warning: 'ध्यान दें',
+      inspect: 'जांचें (Inspect)',
+      viewAll: 'सभी देखें',
+      target: 'लक्ष्य (Target)',
+      actual: 'वास्तविक (Actual)',
+      ahead: 'आगे',
+      behind: 'पीछे',
+      exportLog: 'टेलीमेट्री लॉग ↓',
+      quickPrompts: 'त्वरित सवाल:',
+      askAnythingTitle: 'कुछ भी पूछें',
+      askAnythingSub: 'RAG AI द्वारा संचालित',
+      timeRemaining: 'बाकी पार्ट्स',
+      estCompletion: 'अनुमानित समय',
+      availability: 'उपलब्धता',
+      performance: 'रफ्तार',
+      quality: 'गुणवत्ता',
+      hours: 'घंटे',
+      days: 'दिन',
+      cadenceTitle: 'शिफ्ट उत्पादन गति (लक्ष्य बनाम वास्तविक)',
+      activeAlarmsTitle: 'सक्रिय अलार्म व खराबी चेतावनी (3)',
+      shiftTargetTitle: 'शिफ्ट का उत्पादन लक्ष्य',
+      oeeCompositionTitle: 'OEE का विवरण',
+      edgeConnectivityTitle: 'एज कनेक्टिविटी और DAQ',
+      colMachine: 'मशीन',
+      colModelLine: 'मॉडल व लाइन',
+      colWorkpiece: 'पार्ट व बैच',
+      colStatus: 'स्थिति',
+      colSpeed: 'मोटर स्पीड (RPM)',
+      colTemp: 'तापमान (°C)',
+      colSmoothness: 'स्मूथनेस',
+      colOee: 'OEE',
+      colAction: 'कार्रवाई',
+      colAnomaly: 'खराबी व सीमा',
+      colSeverity: 'गंभीरता',
+      colReported: 'समय',
+      testDefect: '⚡ डिफेक्ट टेस्ट करें',
     },
   },
 
@@ -532,6 +685,7 @@ export const translations: Record<Language, Translations> = {
       zoneA: 'CNC ಯಂತ್ರಗಳ ವಲಯ',
       zoneB: 'ಲೋಡಿಂಗ್ ಜಾಗ',
       zoneC: 'ರೋಬೋಟ್ ಕೆಲಸದ ಸ್ಥಳ',
+      recentCaptures: 'ಇತ್ತೀಚಿನ ಆಪ್ಟಿಕಲ್ ತಪಾಸಣೆಗಳು',
     },
     maintenance: {
       title: 'ಮುಂದಿನ ಸರ್ವೀಸ್ ಮತ್ತು ರಿಪೇರಿ',
@@ -580,6 +734,56 @@ export const translations: Record<Language, Translations> = {
       ],
       initialGreeting: 'ನಮಸ್ಕಾರ! ನಾನು ನಿಮ್ಮ ಫ್ಯಾಕ್ಟರಿ AI ಸಹಾಯಕ. ನಿಮ್ಮ ಎಲ್ಲಾ ಯಂತ್ರಗಳು ಮತ್ತು ಗುಣಮಟ್ಟದ ಮೇಲೆ ನಾನು ನಿಗಾ ಇಡುತ್ತೇನೆ. ಬಲಗಡೆಯ ಬಟನ್ ಒತ್ತಿ ಅಥವಾ ಯಾವುದೇ ಪ್ರಶ್ನೆಯನ್ನು ಸುಲಭವಾಗಿ ಕೇಳಿ.',
       clearedMessage: 'ಚಾಟ್ ಇತಿಹಾಸ ತೆರವುಗೊಂಡಿದೆ. ನೀವು ಯಾವುದೇ ಪ್ರಶ್ನೆ ಕೇಳಬಹುದು.',
+    },
+    categories: {
+      operations: 'ಕಾರ್ಯಾಚರಣೆಗಳು',
+      quality: 'ಗುಣಮಟ್ಟ',
+      maintenance: 'ನಿರ್ವಹಣೆ',
+      analytics: 'ವಿಶ್ಲೇಷಣೆ',
+      intelligence: 'ಬುದ್ಧಿವಂತಿಕೆ (AI)',
+    },
+    common: {
+      searchPlaceholder: 'ಯಂತ್ರ, ಭಾಗ, ಲೈನ್ ಹುಡುಕಿ...',
+      live: 'ಲೈವ್ ಟೆಲಿಮೆಟ್ರಿ',
+      paused: 'ಸ್ಟ್ರೀಮ್ ನಿಲ್ಲಿಸಲಾಗಿದೆ',
+      running: 'ಚಾಲನೆಯಲ್ಲಿದೆ',
+      idle: 'ನಿಷ್ಕ್ರಿಯ',
+      warning: 'ಗಮನಿಸಿ',
+      inspect: 'ಪರಿಶೀಲಿಸಿ',
+      viewAll: 'ಎಲ್ಲವನ್ನೂ ವೀಕ್ಷಿಸಿ',
+      target: 'ಗುರಿ',
+      actual: 'ವಾಸ್ತವ',
+      ahead: 'ಮುಂದಿದೆ',
+      behind: 'ಹಿಂದಿದೆ',
+      exportLog: 'ಟೆಲಿಮೆಟ್ರಿ ಲಾಗ್ ↓',
+      quickPrompts: 'ತ್ವರಿತ ಪ್ರಶ್ನೆಗಳು:',
+      askAnythingTitle: 'ಏನನ್ನಾದರೂ ಕೇಳಿ',
+      askAnythingSub: 'RAG AI ನಿಂದ ಚಾಲಿತವಾಗಿದೆ',
+      timeRemaining: 'ಉಳಿದ ಭಾಗಗಳು',
+      estCompletion: 'ಅಂದಾಜು ಮುಕ್ತಾಯ',
+      availability: 'ಲಭ್ಯತೆ',
+      performance: 'ಕಾರ್ಯಕ್ಷಮತೆ',
+      quality: 'ಗುಣಮಟ್ಟ',
+      hours: 'ಗಂಟೆಗಳು',
+      days: 'ದಿನಗಳು',
+      cadenceTitle: 'ಶಿಫ್ಟ್ ಉತ್ಪಾದನಾ ವೇಗ (ಗುರಿ ವಿರುದ್ಧ ವಾಸ್ತವ)',
+      activeAlarmsTitle: 'ಸಕ್ರಿಯ ಅಲಾರಂಗಳು ಮತ್ತು ಎಚ್ಚರಿಕೆಗಳು (3)',
+      shiftTargetTitle: 'ಶಿಫ್ಟ್ ಉತ್ಪಾದನಾ ಗುರಿ',
+      oeeCompositionTitle: 'OEE ವಿವರ',
+      edgeConnectivityTitle: 'ಎಡ್ಜ್ ಕನೆಕ್ಟಿವಿಟಿ ಮತ್ತು DAQ',
+      colMachine: 'ಯಂತ್ರ',
+      colModelLine: 'ಮಾದರಿ ಮತ್ತು ಲೈನ್',
+      colWorkpiece: 'ಭಾಗ ಮತ್ತು ಬ್ಯಾಚ್',
+      colStatus: 'ಸ್ಥಿತಿ',
+      colSpeed: 'ವೇಗ (RPM)',
+      colTemp: 'ತಾಪಮಾನ (°C)',
+      colSmoothness: 'ಸ್ಮೂತ್‌ನೆಸ್',
+      colOee: 'OEE',
+      colAction: 'ಕ್ರಮ',
+      colAnomaly: 'ದೋಷ ಮತ್ತು ಮಿತಿ',
+      colSeverity: 'ತೀವ್ರತೆ',
+      colReported: 'ಸಮಯ',
+      testDefect: '⚡ ದೋಷ ಪರೀಕ್ಷೆ',
     },
   },
 
@@ -679,6 +883,7 @@ export const translations: Record<Language, Translations> = {
       zoneA: 'CNC இயந்திர பகுதி',
       zoneB: 'ஏற்றுமதி தளம்',
       zoneC: 'ரோபோ பணி பகுதி',
+      recentCaptures: 'சமீபத்திய ஒளியியல் ஆய்வுகள்',
     },
     maintenance: {
       title: 'அடுத்த பராமரிப்பு மற்றும் பழுது',
@@ -727,6 +932,56 @@ export const translations: Record<Language, Translations> = {
       ],
       initialGreeting: 'வணக்கம்! நான் உங்கள் தொழிற்சாலை AI உதவியாளர். உங்கள் இயந்திரங்கள் மற்றும் உற்பத்தியை நான் கண்காணிக்கிறேன். வலதுபுறம் உள்ள கேள்விகளை தட்டவும் அல்லது எதையும் கேளுங்கள்.',
       clearedMessage: 'அரட்டை அழிக்கப்பட்டது. நீங்கள் எந்த கேள்வியையும் கேட்கலாம்.',
+    },
+    categories: {
+      operations: 'செயல்பாடுகள்',
+      quality: 'தரம்',
+      maintenance: 'பராமரிப்பு',
+      analytics: 'பகுப்பாய்வு',
+      intelligence: 'நுண்ணறிவு (AI)',
+    },
+    common: {
+      searchPlaceholder: 'இயந்திரம், பகுதி, லைன் தேடுங்கள்...',
+      live: 'நேரலை டெலிமெட்ரி',
+      paused: 'ஸ்ட்ரீம் நிறுத்தப்பட்டது',
+      running: 'இயங்குகிறது',
+      idle: 'செயலற்றது',
+      warning: 'கவனம்',
+      inspect: 'ஆய்வு செய்',
+      viewAll: 'அனைத்தையும் காண்க',
+      target: 'இலக்கு',
+      actual: 'உண்மையான',
+      ahead: 'முன்னால்',
+      behind: 'பின்னடைவு',
+      exportLog: 'டெலிமெட்ரி பதிவு ↓',
+      quickPrompts: 'விரைவு வினாக்கள்:',
+      askAnythingTitle: 'எதையும் கேளுங்கள்',
+      askAnythingSub: 'RAG AI மூலம் இயங்குகிறது',
+      timeRemaining: 'மீதமுள்ள பாகங்கள்',
+      estCompletion: 'முடிவு நேரம்',
+      availability: 'கிடைக்கும் தன்மை',
+      performance: 'செயல்திறன்',
+      quality: 'தரம்',
+      hours: 'மணி',
+      days: 'நாட்கள்',
+      cadenceTitle: 'ஷிப்ட் உற்பத்தி வேகம் (இலக்கு vs உண்மை)',
+      activeAlarmsTitle: 'செயலில் உள்ள அலாரங்கள் (3)',
+      shiftTargetTitle: 'ஷிப்ட் உற்பத்தி இலக்கு',
+      oeeCompositionTitle: 'OEE பகுப்பாய்வு',
+      edgeConnectivityTitle: 'எட்ஜ் இணைப்பு மற்றும் DAQ',
+      colMachine: 'இயந்திரம்',
+      colModelLine: 'மாதிரி மற்றும் லைன்',
+      colWorkpiece: 'பாகம் மற்றும் தொகுதி',
+      colStatus: 'நிலை',
+      colSpeed: 'வேகம் (RPM)',
+      colTemp: 'வெப்பநிலை (°C)',
+      colSmoothness: 'மென்மை',
+      colOee: 'OEE',
+      colAction: 'நடவடிக்கை',
+      colAnomaly: 'சிக்கல் மற்றும் வரம்பு',
+      colSeverity: 'தீவிரம்',
+      colReported: 'நேரம்',
+      testDefect: '⚡ குறைபாடு சோதனை',
     },
   },
 
@@ -826,6 +1081,7 @@ export const translations: Record<Language, Translations> = {
       zoneA: 'CNC మెషిన్ల ప్రాంతం',
       zoneB: 'లోడింగ్ ప్రాంతం',
       zoneC: 'రోబోట్ పనిచేసే స్థలం',
+      recentCaptures: 'ఇటీవలి ఆప్టికల్ తనిఖీలు',
     },
     maintenance: {
       title: 'తదుపరి సర్వీస్ మరియు రిపేర్లు',
@@ -874,6 +1130,56 @@ export const translations: Record<Language, Translations> = {
       ],
       initialGreeting: 'నమస్కారం! నేను మీ ఫ్యాక్టరీ AI అసిస్టెంట్‌ని. మీ అన్ని మెషిన్లు మరియు నాణ్యతను నేను పర్యవేక్షిస్తాను. కుడివైపు ఉన్న బటన్ నొక్కండి లేదా ఏదైనా ప్రశ్నను సులభంగా అడగండి.',
       clearedMessage: 'చాట్ క్లియర్ చేయబడింది. మీరు ఏ ప్రశ్නයైనా అడగవచ్చు.',
+    },
+    categories: {
+      operations: 'కార్యకలాపాలు',
+      quality: 'నాణ్యత',
+      maintenance: 'నిర్వహణ',
+      analytics: 'విశ్లేషణలు',
+      intelligence: 'ఇంటెలిజెన్స్ (AI)',
+    },
+    common: {
+      searchPlaceholder: 'మెషిన్, భాగం, లైన్ శోధించండి...',
+      live: 'లైవ్ టెలిమెట్రీ',
+      paused: 'స్ట్రీమ్ ఆపబడింది',
+      running: 'నడుస్తోంది',
+      idle: 'ఖాళీగా ఉంది',
+      warning: 'శ్రద్ధ వహించండి',
+      inspect: 'పరిశీలించండి',
+      viewAll: 'అన్నీ చూడండి',
+      target: 'లక్ష్యం',
+      actual: 'వాస్తవ',
+      ahead: 'ముందుంది',
+      behind: 'వెనుకబడి ఉంది',
+      exportLog: 'టెలిమెట్రీ లాగ్ ↓',
+      quickPrompts: 'త్వరిత ప్రశ్నలు:',
+      askAnythingTitle: 'ఏదైనా అడగండి',
+      askAnythingSub: 'RAG AI ద్వారా ఆధారితం',
+      timeRemaining: 'మిగిలిన భాగాలు',
+      estCompletion: 'పూర్తయ్యే సమయం',
+      availability: 'లభ్యత',
+      performance: 'పనితీరు',
+      quality: 'నాణ్యత',
+      hours: 'గంటలు',
+      days: 'రోజులు',
+      cadenceTitle: 'షిఫ్ట్ ఉత్పత్తి వేగం (లక్ష్యం vs వాస్తవం)',
+      activeAlarmsTitle: 'యాక్టివ్ అలారాలు మరియు హెచ్చరికలు (3)',
+      shiftTargetTitle: 'షిఫ్ట్ ఉత్పత్తి లక్ష్యం',
+      oeeCompositionTitle: 'OEE వివరాలు',
+      edgeConnectivityTitle: 'ఎడ్జ్ కనెక్టివిటీ మరియు DAQ',
+      colMachine: 'మెషిన్',
+      colModelLine: 'మోడల్ మరియు లైన్',
+      colWorkpiece: 'భాగం మరియు బ్యాచ్',
+      colStatus: 'స్థితి',
+      colSpeed: 'స్పీడ్ (RPM)',
+      colTemp: 'ఉష్ణోగ్రత (°C)',
+      colSmoothness: 'స్మూత్‌నెస్',
+      colOee: 'OEE',
+      colAction: 'చర్య',
+      colAnomaly: 'సమస్య మరియు పరిమితి',
+      colSeverity: 'తీవ్రత',
+      colReported: 'సమయం',
+      testDefect: '⚡ లోపం పరీక్ష',
     },
   },
 };

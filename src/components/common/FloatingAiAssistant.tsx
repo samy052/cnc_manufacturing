@@ -74,7 +74,7 @@ export default function FloatingAiAssistant() {
                 <span className="floating-ai-header-status-dot" />
               </div>
               <div>
-                <div className="floating-ai-header-title">Factory AI Copilot</div>
+                <div className="floating-ai-header-title">{t.assistant.title}</div>
                 <div className="floating-ai-header-sub">
                   <span className="floating-ai-pulse-dot" />
                   RAG & SCADA Telemetry Live
@@ -127,7 +127,7 @@ export default function FloatingAiAssistant() {
           <div className="floating-ai-messages">
             {chatMessages.length === 0 ? (
               <div className="floating-ai-empty">
-                <p>Hello! How can I assist you with the shop floor today?</p>
+                <p>{t.assistant.initialGreeting}</p>
               </div>
             ) : (
               chatMessages.map((msg) => (
@@ -172,7 +172,7 @@ export default function FloatingAiAssistant() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask anything about factory, machines..."
+              placeholder={t.assistant.inputPlaceholder}
               className="floating-ai-input"
             />
             <button
@@ -180,8 +180,8 @@ export default function FloatingAiAssistant() {
               onClick={handleSend}
               className="floating-ai-send-btn"
               disabled={!inputValue.trim()}
-              title="Send Message"
-              aria-label="Send Message"
+              title={t.assistant.send}
+              aria-label={t.assistant.send}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" />
@@ -202,8 +202,8 @@ export default function FloatingAiAssistant() {
           aria-label="Toggle AI Assistant"
         >
           <div className="floating-ai-trigger-bubble-text">
-            <span className="floating-ai-trigger-title">Ask Anything</span>
-            <span className="floating-ai-trigger-sub">Powered by RAG AI</span>
+            <span className="floating-ai-trigger-title">{t.common.askAnythingTitle}</span>
+            <span className="floating-ai-trigger-sub">{t.common.askAnythingSub}</span>
           </div>
           {/* Triangular speech bubble tail pointing right towards the avatar */}
           <span className="floating-ai-trigger-tail" />

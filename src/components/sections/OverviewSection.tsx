@@ -36,6 +36,9 @@ export default function OverviewSection() {
     machines,
     setActiveSection,
     openMachineDetail,
+    t,
+    isLive,
+    language,
   } = useFoundry();
 
   const [globalTimeFrame, setGlobalTimeFrame] = useState<TimeFrameKey>('8H');
@@ -355,14 +358,14 @@ export default function OverviewSection() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <h1 className="page-hero-title" style={{ fontSize: '22px', fontWeight: 800 }}>
-              Plant Operations Command Center
+              {t.overview.title}
             </h1>
             <span className="live-badge-mint">
-              <span className="pulse-dot" /> Live Telemetry
+              <span className="pulse-dot" /> {isLive ? t.common.live : t.common.paused}
             </span>
           </div>
           <p className="page-hero-desc" style={{ marginTop: '2px', marginBottom: 0, fontSize: '13px' }}>
-            Real-time CNC telemetry, edge vision QA, predictive health & production cadence · 2,480 tags/sec
+            {t.overview.desc}
           </p>
         </div>
 
@@ -393,7 +396,7 @@ export default function OverviewSection() {
             onClick={() => alert('Exporting full plant telemetry CSV (2,480 tags/sec)...')}
             title="Export shift telemetry log"
           >
-            <span>Telemetry Log ↓</span>
+            <span>{t.common.exportLog}</span>
           </button>
         </div>
       </div>
@@ -416,11 +419,11 @@ export default function OverviewSection() {
             <span className="kpi-big-value tabular">{machinesOnline}</span>
             <span style={{ fontSize: '15px', color: 'var(--text-muted)', fontWeight: 600 }}>/ 12</span>
           </div>
-          <div className="kpi-label">Active Machines</div>
+          <div className="kpi-label">{t.overview.kpiMachines}</div>
           <div className="kpi-sub-line font-sm">
-            <span><span className="dot-status green pulse" /> 9 Running</span>
-            <span><span className="dot-status amber" /> 2 Idle</span>
-            <span><span className="dot-status red" /> 1 Maint</span>
+            <span><span className="dot-status green pulse" /> 9 {t.common.running}</span>
+            <span><span className="dot-status amber" /> 2 {t.common.idle}</span>
+            <span><span className="dot-status red" /> 1 {t.common.warning}</span>
           </div>
           <div style={{ marginTop: '10px' }}>
             <InteractiveSparkline
@@ -451,7 +454,7 @@ export default function OverviewSection() {
           <div className="kpi-val-line">
             <span className="kpi-big-value tabular">{partsInspected.toLocaleString()}</span>
           </div>
-          <div className="kpi-label">Parts Produced (Target: 4,500)</div>
+          <div className="kpi-label">{t.overview.kpiParts} ({t.common.target}: 4,500)</div>
           <div className="kpi-sub-line font-sm">
             <span>Cadence: <strong>567 pcs/hr</strong></span>
             <span>FPY: <strong>98.4%</strong></span>
@@ -485,11 +488,11 @@ export default function OverviewSection() {
           <div className="kpi-val-line">
             <span className="kpi-big-value tabular">{oee.toFixed(1)}%</span>
           </div>
-          <div className="kpi-label">Overall Plant OEE</div>
+          <div className="kpi-label">{t.overview.kpiOee}</div>
           <div className="kpi-sub-line font-sm">
-            <span>Avail <strong>88.5%</strong></span>
-            <span>Perf <strong>92.1%</strong></span>
-            <span>Qual <strong>98.4%</strong></span>
+            <span>{t.common.availability} <strong>88.5%</strong></span>
+            <span>{t.common.performance} <strong>92.1%</strong></span>
+            <span>{t.common.quality} <strong>98.4%</strong></span>
           </div>
           <div style={{ marginTop: '10px' }}>
             <InteractiveSparkline
@@ -521,14 +524,14 @@ export default function OverviewSection() {
             <span className="kpi-big-value tabular" style={{ color: '#DC2626' }}>3</span>
             <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: 600 }}>Active</span>
           </div>
-          <div className="kpi-label">Alarms & Anomalies</div>
+          <div className="kpi-label">{t.overview.kpiAlerts}</div>
           <div className="kpi-sub-line font-sm">
             <span>CNC-07 Spindle Vib</span>
             <span>CNC-03 Cycle</span>
           </div>
           <div style={{ marginTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '11px', color: '#DC2626', fontWeight: 600 }}>Action Required</span>
-            <span style={{ fontSize: '11px', color: '#2563EB', fontWeight: 600 }}>Inspect ↗</span>
+            <span style={{ fontSize: '11px', color: '#2563EB', fontWeight: 600 }}>{t.common.inspect} ↗</span>
           </div>
         </div>
 
@@ -548,7 +551,7 @@ export default function OverviewSection() {
             <span className="kpi-big-value tabular">14.2</span>
             <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontWeight: 600 }}>kW</span>
           </div>
-          <div className="kpi-label">Power & Utility Demand</div>
+          <div className="kpi-label">{t.optimization.savingsTitle}</div>
           <div className="kpi-sub-line font-sm">
             <span>PF: <strong>0.94</strong></span>
             <span>Shift: <strong>118.4 kWh</strong></span>
@@ -576,15 +579,15 @@ export default function OverviewSection() {
           <div className="overview-panel-card">
             <div className="panel-card-header">
               <div className="panel-title-group">
-                <h3 className="panel-card-title">Production Cadence & Hourly Output</h3>
+                <h3 className="panel-card-title">{t.common.cadenceTitle}</h3>
                 <div className="trend-legend">
                   <span className="legend-item">
                     <span className="legend-dot blue" />
-                    <span>Actual Output ({currentChart.actual[currentChart.actual.length - 1]} pcs)</span>
+                    <span>{t.common.actual} ({currentChart.actual[currentChart.actual.length - 1]} pcs)</span>
                   </span>
                   <span className="legend-item">
                     <span className="legend-line dashed" />
-                    <span>Planned Target ({currentChart.target[0]} pcs)</span>
+                    <span>{t.common.target} ({currentChart.target[0]} pcs)</span>
                   </span>
                 </div>
               </div>
@@ -721,7 +724,7 @@ export default function OverviewSection() {
           <div className="overview-panel-card">
             <div className="panel-card-header">
               <div className="panel-title-group">
-                <h3 className="panel-card-title">Active Alarms & Telemetry Anomalies (3)</h3>
+                <h3 className="panel-card-title">{t.common.activeAlarmsTitle}</h3>
                 <span className="kpi-badge-pill red">Live SCADA Feed</span>
               </div>
               <button
@@ -729,7 +732,7 @@ export default function OverviewSection() {
                 className="link-view-all-theme"
                 onClick={() => setActiveSection('maintenance')}
               >
-                View All in Maintenance →
+                {t.common.viewAll} →
               </button>
             </div>
 
@@ -737,11 +740,11 @@ export default function OverviewSection() {
               <table className="alarms-mini-table">
                 <thead>
                   <tr>
-                    <th>Machine</th>
-                    <th>Anomaly & Threshold</th>
-                    <th>Severity</th>
-                    <th>Reported</th>
-                    <th style={{ textAlign: 'right' }}>Action</th>
+                    <th>{t.common.colMachine}</th>
+                    <th>{t.common.colAnomaly}</th>
+                    <th>{t.common.colSeverity}</th>
+                    <th>{t.common.colReported}</th>
+                    <th style={{ textAlign: 'right' }}>{t.common.colAction}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -795,14 +798,14 @@ export default function OverviewSection() {
           {/* Widget 1: Shift Progress */}
           <div className="overview-panel-card">
             <div className="panel-card-header" style={{ marginBottom: '8px' }}>
-              <h3 className="panel-card-title" style={{ fontSize: '14px' }}>Shift A Progress</h3>
+              <h3 className="panel-card-title" style={{ fontSize: '14px' }}>{t.common.shiftTargetTitle}</h3>
               <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>06:00 - 14:00</span>
             </div>
             <div className="widget-shift-subhead">Supervisor: Rajesh Kumar · Line 1-3 Active</div>
 
             <div className="shift-stat-top">
               <span className="shift-big-pct">84%</span>
-              <span className="shift-parts-target">3,800 / 4,500 Target</span>
+              <span className="shift-parts-target">3,800 / 4,500 {t.common.target}</span>
             </div>
 
             <div className="shift-progress-track">
@@ -811,15 +814,15 @@ export default function OverviewSection() {
 
             <div className="shift-bottom-meta">
               <div className="shift-meta-col">
-                <span className="shift-meta-label">Remaining</span>
+                <span className="shift-meta-label">{t.common.timeRemaining}</span>
                 <span className="shift-meta-val">700 parts</span>
               </div>
               <div className="shift-meta-col">
-                <span className="shift-meta-label">Est. Completion</span>
+                <span className="shift-meta-label">{t.common.estCompletion}</span>
                 <span className="shift-meta-val">13:42 PM</span>
               </div>
               <div className="shift-meta-col">
-                <span className="shift-meta-label">Pace</span>
+                <span className="shift-meta-label">{t.common.ahead}</span>
                 <span className="shift-meta-val" style={{ color: '#16A34A' }}>+37 ahead</span>
               </div>
             </div>
@@ -828,7 +831,7 @@ export default function OverviewSection() {
           {/* Widget 2: OEE Radial Composition */}
           <div className="overview-panel-card">
             <div className="panel-card-header" style={{ marginBottom: '4px' }}>
-              <h3 className="panel-card-title" style={{ fontSize: '14px' }}>OEE Composition</h3>
+              <h3 className="panel-card-title" style={{ fontSize: '14px' }}>{t.common.oeeCompositionTitle}</h3>
               <button
                 type="button"
                 className="link-view-all-theme"
@@ -879,17 +882,17 @@ export default function OverviewSection() {
               <div className="oee-legend-col">
                 <div className="oee-legend-line">
                   <span className="dot-status green" />
-                  <span className="oee-legend-name">Availability</span>
+                  <span className="oee-legend-name">{t.common.availability}</span>
                   <span className="oee-legend-pct">88.5%</span>
                 </div>
                 <div className="oee-legend-line">
                   <span className="dot-status blue" />
-                  <span className="oee-legend-name">Performance</span>
+                  <span className="oee-legend-name">{t.common.performance}</span>
                   <span className="oee-legend-pct">92.1%</span>
                 </div>
                 <div className="oee-legend-line">
                   <span className="dot-status cyan" />
-                  <span className="oee-legend-name">Quality</span>
+                  <span className="oee-legend-name">{t.common.quality}</span>
                   <span className="oee-legend-pct">98.4%</span>
                 </div>
               </div>
@@ -899,7 +902,7 @@ export default function OverviewSection() {
           {/* Widget 3: Industrial DAQ & Protocols */}
           <div className="overview-panel-card">
             <div className="panel-card-header" style={{ marginBottom: '4px' }}>
-              <h3 className="panel-card-title" style={{ fontSize: '14px' }}>Edge Connectivity & DAQ</h3>
+              <h3 className="panel-card-title" style={{ fontSize: '14px' }}>{t.common.edgeConnectivityTitle}</h3>
               <button
                 type="button"
                 className="link-view-all-theme"
@@ -958,35 +961,35 @@ export default function OverviewSection() {
       <div className="overview-panel-card machine-status-card" style={{ marginBottom: '18px' }}>
         <div className="machine-table-header">
           <div className="machine-table-header-left">
-            <h3 className="panel-card-title">Live Machine Fleet Status (12 CNCs)</h3>
+            <h3 className="panel-card-title">{t.collection.title} (12 CNCs)</h3>
             <div className="table-filter-pills">
               <button
                 type="button"
                 className={`table-filter-pill ${tableFilter === 'all' ? 'active' : ''}`}
                 onClick={() => setTableFilter('all')}
               >
-                All (12)
+                {t.collection.filterAll} (12)
               </button>
               <button
                 type="button"
                 className={`table-filter-pill ${tableFilter === 'running' ? 'active' : ''}`}
                 onClick={() => setTableFilter('running')}
               >
-                Running (9)
+                {t.common.running} (9)
               </button>
               <button
                 type="button"
                 className={`table-filter-pill ${tableFilter === 'idle' ? 'active' : ''}`}
                 onClick={() => setTableFilter('idle')}
               >
-                Idle (2)
+                {t.common.idle} (2)
               </button>
               <button
                 type="button"
                 className={`table-filter-pill ${tableFilter === 'warning' ? 'active' : ''}`}
                 onClick={() => setTableFilter('warning')}
               >
-                Maint / Warning (1)
+                {t.collection.filterAttention} (1)
               </button>
             </div>
           </div>
@@ -995,7 +998,7 @@ export default function OverviewSection() {
             <div className="table-search-box">
               <input
                 type="text"
-                placeholder="Search machine, part, line..."
+                placeholder={t.common.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -1024,14 +1027,14 @@ export default function OverviewSection() {
           <table className="machine-status-table">
             <thead>
               <tr>
-                <th>Machine ID & Line</th>
-                <th>Status</th>
-                <th>Workpiece / Part</th>
-                <th>Spindle Speed</th>
-                <th>Cycle Time</th>
-                <th>Parts Output</th>
+                <th>{t.common.colMachine}</th>
+                <th>{t.common.colStatus}</th>
+                <th>{t.common.colWorkpiece}</th>
+                <th>{t.common.colSpeed}</th>
+                <th>{t.collection.cycleTime}</th>
+                <th>{t.overview.kpiParts}</th>
                 <th>OEE %</th>
-                <th style={{ textAlign: 'right' }}>Diagnostics</th>
+                <th style={{ textAlign: 'right' }}>{t.common.colAction}</th>
               </tr>
             </thead>
             <tbody>
@@ -1086,7 +1089,7 @@ export default function OverviewSection() {
                           openMachineDetail(m.id);
                         }}
                       >
-                        Inspect ↗
+                        {t.common.inspect} ↗
                       </button>
                     </td>
                   </tr>

@@ -119,7 +119,7 @@ const DEFECT_TYPES = [
 ];
 
 export default function VisionSection() {
-  const { isLive } = useFoundry();
+  const { isLive, t } = useFoundry();
 
   // Audio Beep Sound System (Web Audio API)
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -538,7 +538,7 @@ export default function VisionSection() {
               <div className="qk-cam-icon-box">
                 <CameraIcon size={16} color="var(--accent-teal)" />
               </div>
-              <h2 className="qk-card-title" style={{ whiteSpace: 'nowrap' }}>Live Optical Inspection</h2>
+              <h2 className="qk-card-title" style={{ whiteSpace: 'nowrap' }}>{t.vision.liveCamera}</h2>
               <div className="qk-live-pill">
                 <span className="qk-pulsing-dot" />
                 <span>LIVE 25 FPS</span>
@@ -587,7 +587,7 @@ export default function VisionSection() {
                 title="Trigger simulated defect and test audible siren"
                 onClick={() => triggerInspection(true)}
               >
-                <span>⚡ Test Defect</span>
+                <span>⚡ {t.common.testDefect}</span>
               </button>
 
               <button
@@ -936,7 +936,7 @@ export default function VisionSection() {
           <div className="qk-card-header">
             <div className="qk-hdr-left">
               <span className="qk-green-bar" />
-              <h2 className="qk-card-title">Recent Optical Inspections</h2>
+              <h2 className="qk-card-title">{t.vision.recentCaptures}</h2>
             </div>
             {/* Table Filter Tabs */}
             <div className="qk-table-filter-pills">

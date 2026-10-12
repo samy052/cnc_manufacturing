@@ -200,9 +200,9 @@ export default function AssistantSection() {
             <span className="dot-live" />
             <span>Industrial RAG Engine · Llama 3.3 70B &amp; Factory Knowledge Graph</span>
           </div>
-          <h1 className="page-hero-title">Factory AI Copilot &amp; Autonomous Diagnostics</h1>
+          <h1 className="page-hero-title">{t.assistant.title}</h1>
           <p className="page-hero-desc">
-            Mission-critical generative intelligence trained on Fanuc &amp; Siemens PLC telemetry, ISO 230 metrology standards, and 1,480+ machine shop engineering manuals.
+            {t.assistant.desc}
           </p>
         </div>
 
@@ -294,7 +294,7 @@ export default function AssistantSection() {
                 className="console-clear-btn"
                 title="Reset active diagnostic session"
               >
-                Clear Log
+                {t.assistant.clearChat}
               </button>
             </div>
           </div>
@@ -576,14 +576,14 @@ export default function AssistantSection() {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleSendQuery(inputVal);
                 }}
-                placeholder="Ask anything in natural language (e.g. 'Why is CNC-07 vibrating?' or 'Draft shift handoff log')..."
+                placeholder={t.assistant.inputPlaceholder}
               />
               <button
                 type="button"
                 className="assistant-submit-btn-modern"
                 onClick={() => handleSendQuery(inputVal)}
               >
-                Send Request →
+                {t.assistant.send} →
               </button>
             </div>
           </div>

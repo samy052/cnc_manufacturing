@@ -29,12 +29,12 @@ export default function Sidebar() {
 
   const navGroups: NavGroup[] = [
     {
-      category: 'OPERATIONS',
+      category: t.categories.operations,
       items: [
         {
           key: 'overview',
           section: 'overview',
-          label: 'Plant Overview',
+          label: t.nav.overview,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -45,7 +45,7 @@ export default function Sidebar() {
         {
           key: 'production',
           section: 'production',
-          label: 'Production Cadence',
+          label: t.nav.production,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
@@ -56,7 +56,7 @@ export default function Sidebar() {
         {
           key: 'collection',
           section: 'collection',
-          label: 'Machine Telemetry',
+          label: t.nav.collection,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -69,12 +69,12 @@ export default function Sidebar() {
       ],
     },
     {
-      category: 'QUALITY',
+      category: t.categories.quality,
       items: [
         {
           key: 'vision',
           section: 'vision',
-          label: 'Vision Inspection & Defects',
+          label: t.nav.vision,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -85,7 +85,7 @@ export default function Sidebar() {
         {
           key: 'traceability',
           section: 'traceability',
-          label: 'Part Traceability',
+          label: t.nav.traceability,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="7" height="7" />
@@ -99,12 +99,12 @@ export default function Sidebar() {
       ],
     },
     {
-      category: 'MAINTENANCE',
+      category: t.categories.maintenance,
       items: [
         {
           key: 'maintenance',
           section: 'maintenance',
-          label: 'Predictive Alarms & Health',
+          label: t.nav.maintenance,
           badge: warningMachinesCount || 3,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -116,7 +116,7 @@ export default function Sidebar() {
         {
           key: 'downtime',
           section: 'downtime',
-          label: 'Downtime Analysis',
+          label: t.nav.downtime,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -127,12 +127,12 @@ export default function Sidebar() {
       ],
     },
     {
-      category: 'ANALYTICS',
+      category: t.categories.analytics,
       items: [
         {
           key: 'smart_kpi',
           section: 'smart_kpi',
-          label: 'Smart Factory & OEE KPIs',
+          label: t.nav.smartKpi,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
@@ -143,7 +143,7 @@ export default function Sidebar() {
         {
           key: 'optimization',
           section: 'optimization',
-          label: 'Energy & ROI Savings',
+          label: t.nav.optimization,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -153,12 +153,12 @@ export default function Sidebar() {
       ],
     },
     {
-      category: 'INTELLIGENCE',
+      category: t.categories.intelligence,
       items: [
         {
           key: 'edge_signals',
           section: 'edge_signals',
-          label: 'Edge DAQ & Protocols',
+          label: t.nav.edgeSignals,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="18" cy="5" r="3" />
@@ -172,7 +172,7 @@ export default function Sidebar() {
         {
           key: 'assistant',
           section: 'assistant',
-          label: 'Factory AI Copilot',
+          label: t.nav.assistant,
           icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -250,7 +250,7 @@ export default function Sidebar() {
           <div className="sidebar-status-pill">
             <span className={`status-dot-pulse ${isLive ? 'online' : 'paused'}`} />
             <div className="status-meta">
-              <span className="status-title">{isLive ? 'Live Sync Active' : 'Sync Paused'}</span>
+              <span className="status-title">{isLive ? t.brand.liveFeed : t.brand.feedPaused}</span>
               <span className="status-desc">2,480 tags/sec · Edge Online</span>
             </div>
           </div>
@@ -258,9 +258,9 @@ export default function Sidebar() {
             type="button"
             className="sidebar-sim-btn"
             onClick={toggleLive}
-            title={isLive ? 'Pause Live Telemetry Stream' : 'Resume Live Telemetry Stream'}
+            title={isLive ? t.brand.pauseStream : t.brand.resumeStream}
           >
-            {isLive ? 'Pause Stream' : 'Resume Stream'}
+            {isLive ? t.brand.pauseStream : t.brand.resumeStream}
           </button>
         </div>
       </aside>

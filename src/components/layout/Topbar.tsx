@@ -41,7 +41,23 @@ export default function Topbar() {
     setLanguage,
     machines,
     openMachineDetail,
+    t,
   } = useFoundry();
+
+  // Navigation screens localized
+  const navigationScreens = useMemo(() => [
+    { id: 'overview' as SectionType, title: t.nav.overview, category: t.categories.operations, icon: '📊' },
+    { id: 'production' as SectionType, title: t.nav.production, category: t.categories.operations, icon: '📈' },
+    { id: 'collection' as SectionType, title: t.nav.collection, category: t.categories.operations, icon: '📡' },
+    { id: 'vision' as SectionType, title: t.nav.vision, category: t.categories.quality, icon: '👁️' },
+    { id: 'maintenance' as SectionType, title: t.nav.maintenance, category: t.categories.maintenance, icon: '🛠️' },
+    { id: 'downtime' as SectionType, title: t.nav.downtime, category: t.categories.operations, icon: '⏱️' },
+    { id: 'optimization' as SectionType, title: t.nav.optimization, category: t.categories.analytics, icon: '⚡' },
+    { id: 'traceability' as SectionType, title: t.nav.traceability, category: t.categories.quality, icon: '🏷️' },
+    { id: 'smart_kpi' as SectionType, title: t.nav.smartKpi, category: t.categories.analytics, icon: '🎯' },
+    { id: 'edge_signals' as SectionType, title: t.nav.edgeSignals, category: t.categories.intelligence, icon: '📉' },
+    { id: 'assistant' as SectionType, title: t.nav.assistant, category: t.categories.intelligence, icon: '💬' },
+  ], [t]);
 
   // Dropdown states
   const [selectedPlant, setSelectedPlant] = useState('Plant 01');
@@ -102,7 +118,7 @@ export default function Topbar() {
     if (!q) {
       return {
         machines: machines.slice(0, 6),
-        screens: NAVIGATION_SCREENS.slice(0, 4),
+        screens: navigationScreens.slice(0, 4),
         alarms: [
           { id: 'CNC-07', text: 'Spindle vibration above threshold (8.4 mm/s)', severity: 'Critical', line: 'Line 2' },
           { id: 'CNC-03', text: 'Cycle time increased 48.2s (Baseline 41.5s)', severity: 'Warning', line: 'Line 1' },
@@ -120,7 +136,7 @@ export default function Topbar() {
         (m.model?.toLowerCase() || '').includes(q)
     );
 
-    const filteredScreens = NAVIGATION_SCREENS.filter(
+    const filteredScreens = navigationScreens.filter(
       (s) => s.title.toLowerCase().includes(q) || s.category.toLowerCase().includes(q)
     );
 
@@ -136,7 +152,7 @@ export default function Topbar() {
       screens: filteredScreens,
       alarms: alarmsList,
     };
-  }, [searchQuery, machines]);
+  }, [searchQuery, machines, navigationScreens]);
 
   return (
     <header className="topbar-theme" ref={topbarRef}>
@@ -388,7 +404,7 @@ export default function Topbar() {
             <span className="live-dot" />
             {isLive && <span className="live-pulse-ring" />}
           </span>
-          <span className="live-label">{isLive ? 'Live Data' : 'Data Paused'}</span>
+          <span className="live-label">{isLive ? t.common.live : t.common.paused}</span>
         </button>
       </div>
 
@@ -405,7 +421,7 @@ export default function Topbar() {
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
-          <span className="search-placeholder">Search CNCs...</span>
+          <span className="search-placeholder">{t.common.searchPlaceholder}</span>
           <kbd className="search-shortcut">⌘K</kbd>
         </button>
 
@@ -420,7 +436,7 @@ export default function Topbar() {
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Type machine ID (e.g. CNC-07), alarm, line, or dashboard screen..."
+                placeholder={t.common.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="search-palette-input"
@@ -577,7 +593,19 @@ export default function Topbar() {
           </div>
           <div className="topbar-sync-text">
             <span className={`sync-indicator ${isLive ? 'sync-live' : 'sync-paused'}`} />
-            <span>{isLive ? 'Synced 1 sec ago (100 Hz)' : 'Stream paused'}</span>
+            <span>
+              {isLive
+                ? (language === 'hi'
+                    ? 'लाइव सिंक (100 Hz)'
+                    : language === 'kn'
+                    ? 'ಲೈವ್ ಸಿಂಕ್ (100 Hz)'
+                    : language === 'ta'
+                    ? 'நேரலை ஒத்திசைவு (100 Hz)'
+                    : language === 'te'
+                    ? 'లైవ్ సింక్ (100 Hz)'
+                    : 'Synced 1 sec ago (100 Hz)')
+                : t.common.paused}
+            </span>
           </div>
         </div>
 
@@ -730,7 +758,9 @@ export default function Topbar() {
 
           {activePopover === 'lang' && (
             <div className="topbar-dropdown-menu lang-menu">
-              <div className="dropdown-header">Interface Language</div>
+              <div className="dropdown-header">
+                {language === 'hi' ? 'भाषा चुनें (Language)' : language === 'kn' ? 'ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ' : language === 'ta' ? 'மொழியைத் தேர்ந்தெடுக்கவும்' : language === 'te' ? 'భాషను ఎంచుకోండి' : 'Interface Language'}
+              </div>
               {LANGUAGES.map((item) => (
                 <button
                   key={item.code}
